@@ -1,6 +1,6 @@
 plugins {
     java
-    id("org.danilopianini.gradle-java-qa") version "1.77.0"
+    id("org.danilopianini.gradle-java-qa") version "1.88.0"
 }
 
 repositories {
@@ -8,9 +8,9 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.3")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.11.3")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.4")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.11.4")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.4")
 }
 
 tasks.test {
