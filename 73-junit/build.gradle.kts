@@ -2,7 +2,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
     java
-    id("org.danilopianini.gradle-java-qa") version "1.89.0"
+    id("org.danilopianini.gradle-java-qa") version "1.91.0"
 }
 
 repositories {
@@ -23,5 +23,5 @@ tasks.withType<Test> {
     testLogging {
         events(*(TestLogEvent.values())) // events("passed", "skipped", "failed")
     }
-    testLogging.showStandardStreams = true    
+    testLogging.showStandardStreams = true
 }
