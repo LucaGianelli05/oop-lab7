@@ -24,9 +24,9 @@ public final class Transformers {
      * @param base the elements on which to operate
      * @param transformer the {@link Function} to apply to each element. It must transform the elements into a
      *     (possibly empty) collection of other elements.
-     * @return A "flattened" list of the produced elements
      * @param <I> input elements type
      * @param <O> output elements type
+     * @return A "flattened" list of the produced elements
      */
     public static <I, O> List<O> flattenTransform(
         final Iterable<? extends I> base,
@@ -49,9 +49,9 @@ public final class Transformers {
      *
      * @param base the elements on which to operate
      * @param transformer the {@link Function} to apply to each element.
-     * @return A transformed list where each input element is replaced with the produced elements
      * @param <I> input elements type
      * @param <O> output elements type
+     * @return A transformed list where each input element is replaced with the produced elements
      */
     public static <I, O> List<O> transform(final Iterable<I> base, final Function<I, O> transformer) {
         return null;
@@ -66,8 +66,8 @@ public final class Transformers {
      * and whose function simply returns each collection (identity).
      *
      * @param base the collections on which to operate
-     * @return A flattened list with the elements of each collection in the input
      * @param <I> type of the collection elements
+     * @return A flattened list with the elements of each collection in the input
      */
     public static <I> List<? extends I> flatten(final Iterable<? extends Collection<? extends I>> base) {
         return null;
@@ -83,8 +83,8 @@ public final class Transformers {
      *
      * @param base the elements on which to operate
      * @param test the {@link Function} to use to test whether the elements should be selected.
-     * @return A list containing only the elements that passed the test
      * @param <I> elements type
+     * @return A list containing only the elements that passed the test
      */
     public static <I> List<I> select(final Iterable<I> base, final Function<I, Boolean> test) {
         return null;
@@ -99,8 +99,8 @@ public final class Transformers {
      *
      * @param base the elements on which to operate
      * @param test the {@link Function} to use to test whether the elements should be discarded.
-     * @return A list containing only the elements that passed the test
      * @param <I> elements type
+     * @return A list containing only the elements that passed the test
      */
     public static <I> List<I> reject(final Iterable<I> base, final Function<I, Boolean> test) {
         return null;

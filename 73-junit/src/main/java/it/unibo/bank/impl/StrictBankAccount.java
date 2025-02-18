@@ -26,6 +26,7 @@ public class StrictBankAccount extends SimpleBankAccount {
      * Beyond withdrawing the MANAGEMENT_FEE, it withdraws a TRANSACTION_FEE for each
      * transaction performed in the bank account.
      * The amount is not taken if the bank account balance is lower.
+     *
      * @param usrID the account holder identifier.
      * @throws IllegalArgumentException if the id does not correspond.
      */
@@ -65,6 +66,7 @@ public class StrictBankAccount extends SimpleBankAccount {
 
     /**
      * Checks that the withdrawal is allowed on the bank account.
+     *
      * @param amount the amount of money to be taken from the account.
      * @return true if the withdrawal is allowed, otherwise false.
      */

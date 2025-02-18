@@ -4,10 +4,12 @@ import java.util.Comparator;
 
 /**
  * A factory of Comparators that interprets strings as Month names.
+ *
  * <p>
  * Implementations must be flexible and consider both upper and lower case strings,
  * as well as partial names.
  * </p>
+ *
  * <p>
  * For instance,
  * {@code "January"},

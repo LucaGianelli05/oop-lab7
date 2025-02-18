@@ -24,6 +24,7 @@ public class SimpleBankAccount implements BankAccount {
 
     /**
      * Builds a new {@link SimpleBankAccount}.
+     *
      * @param accountHolder the account holder
      * @param balance the initial balance
      */
@@ -113,6 +114,7 @@ public class SimpleBankAccount implements BankAccount {
 
     /**
      * Checks that the user id corresponds to the owner of this bank account.
+     *
      * @param id the user id
      * @return true if the id corresponds to the owner of the bank account, otherwise false.
      */

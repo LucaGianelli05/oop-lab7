@@ -31,10 +31,11 @@ class TestMonthSorter {
     private static final int SHORT_MONTH = 28;
     private static final int USUAL_MONTH = 30;
     private static final int LONG_MONTH = 31;
+    private static final String MARCH = "march";
     private static final List<String> ALL_MONTHS_ORDERED = List.of(
         "january",
         "february",
-        "march",
+        MARCH,
         "april",
         "may",
         "june",
@@ -50,7 +51,7 @@ class TestMonthSorter {
         // Class-initializer syntax
         put("january", LONG_MONTH);
         put("february", SHORT_MONTH);
-        put("march", LONG_MONTH);
+        put(MARCH, LONG_MONTH);
         put("april", USUAL_MONTH);
         put("may", LONG_MONTH);
         put("june", USUAL_MONTH);
@@ -95,7 +96,7 @@ class TestMonthSorter {
                 return input.endsWith("y");
             }
         }),
-        List.of("jan", "F", "march", "April", "JUNE", "July", "AUG", "Sept", "dec")
+        List.of("jan", "F", MARCH, "April", "JUNE", "July", "AUG", "Sept", "dec")
     );
 
     @Test

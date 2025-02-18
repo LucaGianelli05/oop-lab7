@@ -31,6 +31,7 @@ public interface BankAccount {
      * The deposit from the ATM includes also fees (ATM_TRANSACTION_FEE) that are directly taken from the account
      * holder's balance.
      * The deposit is performed only if the user ID is corresponding.
+     *
      * @param id the account holder identifier.
      * @param amount the amount of money to deposit into the bank account.
      * @throws IllegalArgumentException if the user ID does not correspond.
@@ -62,6 +63,7 @@ public interface BankAccount {
      * Increments the number of transactions and removes the amount to the bank account's balance.
      * The withdrawal is performed only if the user ID is corresponding and the amount is lower than the
      * account's balance.
+     *
      * @param id the account holder identifier.
      * @param amount the amount of money to withdraw into the bank account.
      * @throws IllegalArgumentException if the user ID does not correspond.
@@ -73,6 +75,7 @@ public interface BankAccount {
      * The withdrawal from the ATM includes also fees (ATM_TRANSACTION_FEE) that are directly taken from the account
      * holder's balance.
      * The deposit is performed only if the user ID is corresponding.
+     *
      * @param id the account holder identifier.
      * @param amount the amount of money to deposit into the bank account.
      * @throws IllegalArgumentException if the user ID does not correspond.

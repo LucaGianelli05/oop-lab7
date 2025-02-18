@@ -10,6 +10,7 @@ public final class AccountHolder {
 
     /**
      * Builds a new {@link AccountHolder}.
+     *
      * @param name the name of the bank account holder.
      * @param surname the surname of the bank account holder.
      * @param id the user id of the bank account holder.
