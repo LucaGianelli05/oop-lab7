@@ -6,6 +6,7 @@ package it.unibo.functional.api;
  * @param <I> the input type
  * @param <O> the output type
  */
+@SuppressWarnings("PMD.ImplicitFunctionalInterface")
 public interface Function<I, O> {
 
     /**
