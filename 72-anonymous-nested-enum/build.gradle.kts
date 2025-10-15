@@ -1,6 +1,6 @@
 plugins {
     java
-    id("org.danilopianini.gradle-java-qa") version "1.145.0"
+    id("org.danilopianini.gradle-java-qa") version "1.146.0"
 }
 
 repositories {
