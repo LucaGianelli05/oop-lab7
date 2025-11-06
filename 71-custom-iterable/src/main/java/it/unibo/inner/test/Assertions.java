@@ -34,7 +34,7 @@ public final class Assertions {
      * @param expected the expected collection
      * @param actual the actual collection
      */
-    public static void assertContentEqualsInOrder(final Iterable<?> expected, final Iterable<?> actual) {
+    public static void assertContentEqualsInOrder(final Iterable<?> expected, final Collection<?> actual) {
         if (checkContentEqualsInOrder(expected, actual)) {
             confirmOK(expected, actual);
         } else {
@@ -50,9 +50,9 @@ public final class Assertions {
         return counter;
     }
 
-    private static boolean checkContentEqualsInOrder(final Iterable<?> expected, final Iterable<?> actual) {
+    private static boolean checkContentEqualsInOrder(final Iterable<?> expected, final Collection<?> actual) {
         Objects.requireNonNull(expected);
-        if (actual == null || iterableSize(expected) != iterableSize(actual)) {
+        if (actual == null || iterableSize(expected) != actual.size()) {
             return false;
         }
         final var expectedIterator = expected.iterator();

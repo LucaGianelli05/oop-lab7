@@ -11,18 +11,23 @@ public class TestIterablePlain {
     private TestIterablePlain() {}
 
     private static <T> IterableWithPolicy<T> getIterableWithPolicy(T[] elements) {
-        return null; // TODO: return the implementation of IterableWithPolicy
+        return new IterableWithPolicyImpl<>(elements); // TODO: return the implementation of IterableWithPolicy
     }
 
     public static void main(final String[] args) {
-        final String[] test1 = { "pippo", "pluto", "paperino" };
-        final IterableWithPolicy<String> evenIterable = getIterableWithPolicy(test1);
-        assertContentEqualsInOrder(List.of("pippo", "pluto", "paperino"), evenIterable);
-        final String[] test2 = {};
-        final IterableWithPolicy<String> emptyIterable = getIterableWithPolicy(test2);
-        assertContentEqualsInOrder(List.of(), emptyIterable);
+        String[] test1 = { "pippo", "pluto", "paperino" };
+
+        IterableWithPolicy<String> evenIterable = getIterableWithPolicy(test1);
+        assertContentEqualsInOrder(evenIterable, List.of("pippo", "pluto", "paperino"));
+
+        String[] test2 = {};
+
+        IterableWithPolicy<String> emptyIterable = getIterableWithPolicy(test2);
+        assertContentEqualsInOrder(emptyIterable, List.of());
+
         String[] test3 = { "foo" };
-        final IterableWithPolicy<String> oneIterable = getIterableWithPolicy(test3);
-        assertContentEqualsInOrder(List.of("foo"), oneIterable);
+
+        IterableWithPolicy<String> oneIterable = getIterableWithPolicy(test3);
+        assertContentEqualsInOrder(oneIterable, List.of("foo"));
     }
 }

@@ -12,14 +12,15 @@ import static it.unibo.inner.test.Assertions.assertContentEqualsInOrder;
 
 public class TestIterableWithPolicy {
 
-    private TestIterableWithPolicy() {}
+    private TestIterableWithPolicy() {
+    }
 
     private static <T> IterableWithPolicy<T> makeIterableWithPolicy(final T[] elements, final Predicate<T> filter) {
-        return null; // TODO: return the implementation of IterableWithPolicy
+        return new IterableWithPolicyImpl<>(elements, filter);
     }
 
     private static <T> IterableWithPolicy<T> makeIterableWithPolicy(final T[] elements) {
-        return null; // TODO: return the implementation of IterableWithPolicy
+        return new IterableWithPolicyImpl<>(elements);
     }
 
     public static void main(final String[] args) {
@@ -39,8 +40,8 @@ public class TestIterableWithPolicy {
         final IterableWithPolicy<String> evenIterable = makeIterableWithPolicy(test1, filterPippoPluto);
         final IterableWithPolicy<String> oddIterable = makeIterableWithPolicy(test1, filterFooBar);
         // Verify the filter application
-        assertContentEqualsInOrder(List.of("pippo", "pluto"), evenIterable);
-        assertContentEqualsInOrder(List.of("foo", "bar"), oddIterable);
+        assertContentEqualsInOrder(evenIterable, List.of("pippo", "pluto"));
+        assertContentEqualsInOrder(oddIterable, List.of("foo", "bar"));
         // Create reject/accept filters
         Predicate<String> filterOutAll = new Predicate<>() {
             public boolean test(String elem) {
@@ -55,15 +56,16 @@ public class TestIterableWithPolicy {
         // Verify the filter application
         final IterableWithPolicy<String> emptyIterable = makeIterableWithPolicy(test1, filterOutAll);
         final IterableWithPolicy<String> allIterable = makeIterableWithPolicy(test1, takeAll);
-        assertContentEqualsInOrder(List.of(), emptyIterable);
-        assertContentEqualsInOrder(List.of("pippo", "pluto", "foo", "bar"), allIterable);
+        assertContentEqualsInOrder(emptyIterable, List.of());
+        assertContentEqualsInOrder(allIterable, List.of("pippo", "pluto", "foo", "bar"));
         // Test changes in policy
         final IterableWithPolicy<String> switchPolicy = makeIterableWithPolicy(test1);
-        // By default, if no Predicate is given, the iterator should iterate all the elements
-        assertContentEqualsInOrder(List.of("pippo", "pluto", "foo", "bar"), switchPolicy);
+        // By default, if no Predicate is given, the iterator should iterate all the
+        // elements
+        assertContentEqualsInOrder(switchPolicy, List.of("pippo", "pluto", "foo", "bar"));
         switchPolicy.setIterationPolicy(filterOutAll);
         // After setting a new policy, the iterator should return no elements
-        assertContentEqualsInOrder(List.of(), switchPolicy);
+        assertContentEqualsInOrder(switchPolicy, List.of());
         // Test with products
         final Product prod1 = new ProductImpl("Prod 1", 0);
         final Product prod2 = new ProductImpl("Prod 2", 100);
@@ -87,10 +89,11 @@ public class TestIterableWithPolicy {
             }
         };
         final IterableWithPolicy<Product> availableProducts = makeIterableWithPolicy(productsTest, filterAllAvailable);
-        assertContentEqualsInOrder(Arrays.asList(prod2, prod3, prod4, prod5), availableProducts);
-        final IterableWithPolicy<Product> expensiveProducts = makeIterableWithPolicy(productsTest, filterGraterThanFifty);
-        assertContentEqualsInOrder(Arrays.asList(prod2, prod5), expensiveProducts);
+        assertContentEqualsInOrder(availableProducts, Arrays.asList(prod2, prod3, prod4, prod5));
+        final IterableWithPolicy<Product> expensiveProducts = makeIterableWithPolicy(productsTest,
+                filterGraterThanFifty);
+        assertContentEqualsInOrder(expensiveProducts, Arrays.asList(prod2, prod5));
         final IterableWithPolicy<Product> onlyProductOne = makeIterableWithPolicy(productsTest, takeOnlyProductOne);
-        assertContentEqualsInOrder(List.of(prod1), onlyProductOne);
+        assertContentEqualsInOrder(onlyProductOne, List.of(prod1));
     }
 }
